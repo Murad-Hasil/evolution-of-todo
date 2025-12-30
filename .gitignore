@@ -1,0 +1,26 @@
+# Environment files
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytype/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

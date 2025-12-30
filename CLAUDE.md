@@ -208,3 +208,14 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Python 3.13+ + UV (package manager), Rich (for CLI beautification) (001-core-todo-essentials)
+- In-memory (Python dictionary/list) (001-core-todo-essentials)
+- Python 3.13+ + pydantic (validation), rich (CLI), pytest (testing) (001-task-organization)
+- In-memory dictionary (`Dict[int, Task]`) (001-task-organization)
+- Python 3.13+ (per constitution) + pydantic (validation), rich (CLI), pytest (testing) (001-due-dates-recurrence)
+- In-memory dictionary (per FR-012 maintain in-memory constraint) (001-due-dates-recurrence)
+
+## Recent Changes
+- 001-core-todo-essentials: Added Python 3.13+ + UV (package manager), Rich (for CLI beautification)
