@@ -1,3 +1,13 @@
+Metadata-Version: 2.4
+Name: todo-app
+Version: 0.1.0
+Summary: CLI-based in-memory Todo application
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.12.5
+Requires-Dist: pytest>=9.0.2
+Requires-Dist: rich>=14.2.0
+
 # Evolution of Todo
 
 A CLI todo application built using Spec-Driven Development (SDD) with Claude Code and Spec-Kit Plus.
@@ -8,14 +18,11 @@ This project demonstrates **Spec-Driven Development (SDD)** - a methodology wher
 
 ### Technology Stack
 
-| Tech | Version/Purpose |
-|------|-----------------|
-| Python | 3.13+ (3.14) |
-| UV | Package mgmt |
-| Pydantic | Data models/validation |
-| Rich | Interactive CLI UI |
-| Pytest | Unit/integration tests |
-| Storage | In-memory `Dict[int, Task]` |
+- **Python 3.13+** with UV for package management
+- **Pydantic** for data validation
+- **Rich** for CLI beautification
+- **In-memory storage** using Python dictionary
+- **Pytest** for testing
 
 ### 5 Specialized Agents
 
@@ -81,59 +88,40 @@ Every development step is recorded in `history/prompts/` proving the SDD workflo
 
 ## Getting Started
 
-### Prerequisites
-- Python 3.13+ (3.14 recommended)
-- UV package manager (`pipx install uv`)
-
-### Setup
 ```bash
+# Install dependencies
 uv sync
-uv pip install -e .
-```
 
-### Run the App (Interactive CLI)
-```bash
-uv run todo
-```
-OR
-```bash
-uv run python src/todo/main.py
-```
+# Run the CLI
+python main.py --help
 
-Expected output:
-```
-Evolution of Todo - Phase I
-In-Memory CLI Edition
+# Add a task
+python main.py add "Complete project" --priority high
 
-Commands:
- add, list, update, complete, delete, exit
-```
+# List tasks
+python main.py list
 
-Enter commands like `add`, `list`, etc. Data lost on exit (in-memory).
-
-### Run Tests
-```bash
-uv run pytest
+# Mark task complete
+python main.py complete 1
 ```
 
 ## Project Structure
 
 ```
-todo-in-memory/
-├── pyproject.toml        # Project config, deps, scripts
-├── uv.lock               # Locked deps
-├── README.md             # This file
-├── src/
-│   └── todo/
-│       ├── __init__.py
-│       ├── main.py       # Entry point (interactive menu)
-│       ├── controller.py # Business logic
-│       └── ui.py         # Rich prompts/tables
-├── tests/
-│   ├── unit/             # Model, storage, logic tests
-│   ├── integration/      # End-to-end tests
-│   └── contract/         # Contract tests
-├── .python-version       # Python 3.14
-├── .venv/                # Virtual env (gitignored)
-└── CLAUDE.md             # SDD rules
+├── .claude/
+│   ├── agents/           # 5 specialized agent configurations
+│   └── skills/           # 5 configured skills
+├── .specify/
+│   ├── memory/           # Project constitution
+│   └── scripts/          # SDD tooling
+├── history/
+│   ├── prompts/          # PHR records for every session
+│   └── adr/              # Architecture Decision Records
+├── specs/                # Feature specifications
+│   └── <feature>/
+│       ├── spec.md       # Requirements
+│       ├── plan.md       # Architecture
+│       └── tasks.md      # Implementation tasks
+├── src/                  # Source code
+└── tests/                # Test suite
 ```
